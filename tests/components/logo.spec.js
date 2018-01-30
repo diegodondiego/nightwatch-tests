@@ -7,8 +7,6 @@ module.exports = {
 			.url(browser.launch_url)
 			// TODO why pause?
 			.pause(1000);
-
-			console.log("hello humans!");
 	},
 
 	'logo present' : function (client) {
