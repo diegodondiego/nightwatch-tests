@@ -5,19 +5,26 @@ module.exports = {
 	before : function(browser) {
 		browser
 			.url(browser.launch_url)
-			// TODO why pause?
 			.pause(1000);
+
+		// TODO create a error function
+		browser.waitForElementVisible(logoElementCSSPath, 2000, true, function() {}, "the logo element wasn't found.");
+	},
+
+	after : function(browser) {
+		browser.end();
 	},
 
 	'logo present' : function (client) {
 		// find the element in the DOM
-		element = client.expect.element(logoElementCSSPath);
+		logoNeeds = client.expect.element(logoElementCSSPath);
 
-		element.to.be.present;
+		// needs to be there
+		logoNeeds.to.be.present;
 
-		element.to.have.attribute('href');
+		// clickable
+		logoNeeds.to.have.attribute('href');
 
-		client.end();
-
+		// logoNeeds.to.contain('svg');
 	}
 }
