@@ -25,6 +25,5 @@ module.exports = {
 		// clickable
 		logoNeeds.to.have.attribute('href');
 
-		// logoNeeds.to.contain('svg');
 	}
 }
